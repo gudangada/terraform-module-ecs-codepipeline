@@ -281,7 +281,7 @@ resource "aws_codepipeline" "default" {
   }
 
   dynamic "stage" {
-    for_each = var.manual_approval ? [] : [1]
+    for_each = var.manual_approval ? [1] : []
 
     content {
       name = "ManualApproval"
