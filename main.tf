@@ -244,7 +244,7 @@ resource "aws_iam_role_policy_attachment" "codebuild_s3" {
 }
 
 resource "aws_codepipeline" "default" {
-  count    = module.this.enabled && var.github_oauth_token != "" ? 1 : 0
+  count    = module.this.enabled ? 1 : 0
   name     = module.codepipeline_label.id
   role_arn = join("", aws_iam_role.default.*.arn)
 
